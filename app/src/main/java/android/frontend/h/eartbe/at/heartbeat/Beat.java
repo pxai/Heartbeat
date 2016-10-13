@@ -4,6 +4,7 @@ import java.util.Date;
 
 /**
  * Created by Asier on 13/10/2016.
+ * Aritz
  */
 
 public class Beat {
