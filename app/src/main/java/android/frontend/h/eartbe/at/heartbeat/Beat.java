@@ -18,6 +18,11 @@ public class Beat {
 
     public Beat() {
     }
+    public Beat(Integer idfrom,String message) {
+        this.idfrom = idfrom;
+        this.message = message;
+    }
+
 
     public Beat(Integer id, String message, Date beat_date, Float latitude, Float longitude, Integer idfrom, Integer idto) {
         this.id = id;
