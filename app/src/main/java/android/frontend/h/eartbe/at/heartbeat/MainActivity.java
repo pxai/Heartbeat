@@ -37,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+
         Animation pulse = AnimationUtils.loadAnimation(this, R.anim.pulse);
         heartbeatIcon.startAnimation(pulse);
         new CountDownTimer(5000,1000){
