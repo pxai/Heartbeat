@@ -1,12 +1,18 @@
 package android.frontend.h.eartbe.at.heartbeat;
 
 import android.content.Intent;
+import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+
+import java.util.Timer;
+import java.util.logging.Handler;
 
 public class MainActivity extends AppCompatActivity {
     private ImageView heartbeatIcon;
@@ -27,8 +33,23 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(MainActivity.this, Main2Activity.class);
                 startActivity(intent);
 
+
             }
         });
+
+        Animation pulse = AnimationUtils.loadAnimation(this, R.anim.pulse);
+        heartbeatIcon.startAnimation(pulse);
+        new CountDownTimer(5000,1000){
+            @Override
+            public void onTick(long millisUntilFinished){}
+
+            @Override
+            public void onFinish(){
+                //set the new Content of your activity
+                MainActivity.this.setContentView(R.layout.activity_main);
+            }
+        }.start();
+
 
 
     }

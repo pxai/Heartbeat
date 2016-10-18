@@ -1,5 +1,6 @@
 package android.frontend.h.eartbe.at.heartbeat;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -17,6 +18,8 @@ public class Main2Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
+        setupData();
+        setupCustomList();
     }
     private void setupData () {
         beats = new ArrayList<Beat>();
@@ -40,7 +43,8 @@ public class Main2Activity extends AppCompatActivity {
         listViewBeats.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                Toast.makeText(Main2Activity.this, "You pressed " + position, Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(Main2Activity.this, conversation.class);
+                startActivity(intent);
             }
         });
 

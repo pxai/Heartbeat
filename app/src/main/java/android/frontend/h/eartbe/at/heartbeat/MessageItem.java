@@ -2,6 +2,8 @@ package android.frontend.h.eartbe.at.heartbeat;
 
 import android.app.Activity;
 import android.content.Context;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,25 +14,21 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-/**
- * Created by Asier on 13/10/2016.
- */
-
-public class CustomizedListAdapter extends BaseAdapter {
+public class MessageItem extends BaseAdapter {
 
     private Activity activity;
-    private ArrayList<Beat> beats;
+    private ArrayList<Message> messages;
 
     /**
      * Constructor
      *
      * @param activity
-     * @param beats
+     * @param messages
      */
-    public CustomizedListAdapter(Activity activity, ArrayList<Beat> beats) {
+    public MessageItem(Activity activity, ArrayList<Message> messages) {
         super();
         this.activity = activity;
-        this.beats = beats;
+        this.messages = messages;
     }
 
 
@@ -40,7 +38,7 @@ public class CustomizedListAdapter extends BaseAdapter {
      */
     public int getCount() {
         // TODO Auto-generated method stub
-        return beats.size();
+        return messages.size();
     }
 
     /**
@@ -49,7 +47,7 @@ public class CustomizedListAdapter extends BaseAdapter {
      * @return Object
      */
     public Object getItem(int position) {
-        return beats.get(position);
+        return messages.get(position);
     }
 
     /**
@@ -76,20 +74,19 @@ public class CustomizedListAdapter extends BaseAdapter {
                 android.R.drawable.ic_dialog_email};
         if(convertView == null){
             LayoutInflater inflater = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            view = inflater.inflate(R.layout.custom_list_item,null);
+            view = inflater.inflate(R.layout.activity_message_item,null);
         }
 
-        Beat beat = beats.get(position);
-        Log.d("PELLODEBUG", beat.toString());
+        Message message = messages.get(position);
+        Log.d("PELLODEBUG", message.toString());
 
-        ImageView imageViewIcon = (ImageView) view.findViewById(R.id.imageViewIcon);
-        imageViewIcon.setImageResource(R.drawable.heartbeat);
 
         TextView textViewTitle = (TextView) view.findViewById(R.id.textViewName);
-        textViewTitle.setText(beat.getIdfrom().toString());
+        textViewTitle.setText(message.getText().toString());
 
         TextView textViewText = (TextView) view.findViewById(R.id.textViewDescription);
-        textViewText.setText(beat.getMessage());
+        textViewText.setText(message.getDate().toString());
+
 
 
         return view;
