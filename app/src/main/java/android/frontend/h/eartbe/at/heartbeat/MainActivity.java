@@ -49,6 +49,8 @@ public class MainActivity extends AppCompatActivity {
             public void onFinish(){
                 //set the new Content of your activity
                 MainActivity.this.setContentView(R.layout.activity_main);
+                Intent intent = new Intent(MainActivity.this, Main2Activity.class);
+                startActivity(intent);
             }
         }.start();
 
