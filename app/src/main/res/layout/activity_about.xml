@@ -27,7 +27,7 @@
             android:layout_gravity="center"/>
 
         <TextView
-            android:text="We are"
+            android:text="@string/we_are"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/textView"
